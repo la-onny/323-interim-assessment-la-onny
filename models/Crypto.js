@@ -22,6 +22,6 @@ const cryptoSchema = new mongoose.Schema({
     type: Number, // Percentage change, e.g., +2.5 or -1.2
     required: true,
   },
-}, { timestamps: true }); // createdAt will be used for 'new listings'
+}, { timestamps: true }); 
 
 export default mongoose.model('Crypto', cryptoSchema);
