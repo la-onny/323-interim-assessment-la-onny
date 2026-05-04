@@ -9,9 +9,7 @@ const generateToken = (id) => {
   });
 };
 
-// @desc    Register new user
-// @route   POST /register
-// @access  Public
+
 export const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -53,9 +51,7 @@ export const registerUser = async (req, res) => {
   }
 };
 
-// @desc    Authenticate a user
-// @route   POST /login
-// @access  Public
+
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -89,9 +85,7 @@ export const loginUser = async (req, res) => {
   }
 };
 
-// @desc    Logout user
-// @route   POST /logout
-// @access  Public
+
 export const logoutUser = (req, res) => {
   res.cookie('jwt', '', {
     httpOnly: true,
