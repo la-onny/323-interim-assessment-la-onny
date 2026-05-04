@@ -70,8 +70,8 @@ export const loginUser = async (req, res) => {
       // Set JWT as HTTP-only cookie
       res.cookie('jwt', token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict', // Prevent CSRF attacks
+        secure: true, // Required for sameSite: 'none'
+        sameSite: 'none', // Allow cross-origin requests
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
       });
 
@@ -95,6 +95,8 @@ export const loginUser = async (req, res) => {
 export const logoutUser = (req, res) => {
   res.cookie('jwt', '', {
     httpOnly: true,
+    secure: true,
+    sameSite: 'none',
     expires: new Date(0),
   });
   res.status(200).json({ message: 'Logged out successfully' });
