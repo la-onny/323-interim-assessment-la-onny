@@ -35,7 +35,7 @@ connectDB();
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('Coinbase Clone API is running...');
+  res.send('Interim Assessment API is running...');
 });
 
 app.use('/auth', authRoutes);
