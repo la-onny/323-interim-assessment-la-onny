@@ -16,8 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173', // Vite default port
-  credentials: true, // Allow cookies to be sent across origins
+  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  credentials: true,
 }));
 
 // Database connection
@@ -34,6 +34,10 @@ const connectDB = async () => {
 connectDB();
 
 // Routes
+app.get('/', (req, res) => {
+  res.send('Coinbase Clone API is running...');
+});
+
 app.use('/auth', authRoutes);
 app.use('/', userRoutes); // will be /profile
 app.use('/crypto', cryptoRoutes);
